@@ -1,37 +1,135 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YNA STORE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNA STORE - Beranda</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
-      background-color: #0f0f1a;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
+      padding: 0;
+      background-color: #0d0d0d;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
     }
     header {
       text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
+      padding: 60px 20px 40px;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px #a020f0;
+      animation: fadeIn 1s ease-in-out;
     }
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(160,32,240,0.6) 0%, transparent 70%);
-      border-radius: 50%;
-      filter: blur(60px);
-      z-index: 0;
+    header h1 {
+      font-size: 40px;
+      color: #a020f0;
+      margin: 0;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      background-color: #111;
+      padding: 30px 15px;
+      box-shadow: 0 0 10px #610094 inset;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    nav a {
+      display: block;
+      width: 80%;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #a020f0, #610094);
+      color: white;
+      text-decoration: none;
+      padding: 20px 40px;
+      font-size: 20px;
+      border-radius: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.8s ease forwards;
+      opacity: 0;
+    }
+    nav a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #a020f0;
+    }
+
+    nav a:nth-child(1) { animation-delay: 0.2s; }
+    nav a:nth-child(2) { animation-delay: 0.4s; }
+    nav a:nth-child(3) { animation-delay: 0.6s; }
+    nav a:nth-child(4) { animation-delay: 0.8s; }
+    nav a:nth-child(5) { animation-delay: 1s; }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+  display: block;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 20px;
+      background-color: #a020f0;
+      color: white;
+      text-decoration: none;
+      padding: 18px 35px;
+      font-size: 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+    nav a:hover {
+      background-color: #610094;
+      transform: scale(1.05);
+    }
+    main {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: center;
+      animation: fadeInUp 2s ease-in-out;
+    }
+    .section {
+      margin-bottom: 100px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background-color: #1a1a1a;
+      color: #999;
+      font-size: 14px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
     .glow-wave-title {
-      position: relative;
-      z-index: 1;
       text-align: center;
       font-size: 42px;
       font-weight: bold;
@@ -63,148 +161,147 @@
         text-shadow: 0 0 20px #a020f0, 0 0 30px #a020f0, 0 0 40px #a020f0;
       }
     }
-
-    nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    nav a {
-      display: block;
-      width: 80%;
-      text-align: center;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #a020f0, #610094);
-      color: white;
-      text-decoration: none;
-      padding: 20px 40px;
-      font-size: 20px;
-      border-radius: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      animation: slideUp 0.8s ease forwards;
-      opacity: 0;
-    }
-    nav a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px #a020f0;
-    }
-    nav a:nth-child(1) { animation-delay: 0.2s; }
-    nav a:nth-child(2) { animation-delay: 0.4s; }
-    nav a:nth-child(3) { animation-delay: 0.6s; }
-    nav a:nth-child(4) { animation-delay: 0.8s; }
-    nav a:nth-child(5) { animation-delay: 1s; }
-
-    @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    main {
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    .section {
-      padding: 40px 20px;
-    }
-
-    .section h2 {
-      color: #a020f0;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .product-card {
-      background-color: #222;
-      padding: 20px;
-      border-radius: 12px;
-      width: 250px;
-      box-shadow: 0 0 10px #a020f0;
-    }
-
-    /* Music Button */
-    button.music-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      background: #a020f0;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 15px 25px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 10px #a020f0;
-    }
-  </style>
+    </style>
+    
 </head>
 <body>
-  <header>
-    <h1 class="glow-wave-title">
+  
+    
+    <header style="position: relative; overflow: hidden;">
+      <svg style="position:absolute; top:-20px; left:-20px; width:150%; height:150%; z-index:0; opacity:0.08;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="circles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="2" fill="#a020f0" />
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#circles)" />
+      </svg>
+    
+      <div style="
+        position: absolute;
+        top: 0; left: 50%;
+        transform: translateX(-50%);
+        width: 300px; height: 300px;
+        background: radial-gradient(circle, rgba(160,32,240,0.6) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(60px);
+        z-index: 0;
+      "></div>
+    
+    
+    <h1 class="glow-wave-title" style="position: relative; z-index: 1;">
       <span>Y</span><span>N</span><span>A</span> 
       <span>S</span><span>T</span><span>O</span><span>R</span><span>E</span> 👑
     </h1>
+    
   </header>
 
-  <nav>
-    <a href="index.html">🏠 Beranda</a>
-    <a href="produk.html">📦 Produk</a>
-    <a href="order.html">🛍️ Cara Order</a>
-    <a href="payment.html">💳 Payment</a>
-    <a href="kontak.html">📞 Kontak</a>
+  
+    <nav style="flex-direction: column; align-items: center;">
+    
+    <a href="produk.html">🛒 Produk</a>
+    <a href="payment.html">💸 Payment</a>
+    <a href="order.html">📦 Cara Order</a>
+    <a href="kontak.html">📱 Kontak</a>
+    <a href="tentang.html">ℹ️ Tentang Yna</a>
   </nav>
 
   <main>
     <div class="section">
-      <h2>🔥 Produk Unggulan</h2>
-      <div class="products">
-        <div class="product-card">
-          <h3>Bot WhatsApp</h3>
-          <p>Lebih dari 1500 fitur, tanpa prefix, tombol modern</p>
-        </div>
-        <div class="product-card">
-          <h3>AM Premium</h3>
-          <p>Alight Motion versi premium full fitur</p>
-        </div>
-        <div class="product-card">
-          <h3>VPS & Panel</h3>
-          <p>Dedicated server murah dan stabil untuk bot & project</p>
-        </div>
-      </div>
+      <h2>Selamat Datang di YNA STORE!</h2>
+      <p>Kami menyediakan berbagai layanan digital terbaik:</p>
     </div>
-  </main>
 
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4b5b06dc28.mp3?filename=neon-game-140207.mp3" type="audio/mp3">
-  </audio>
-  <button class="music-btn" onclick="toggleMusic()">🎶 Music</button>
+    <div class="section">
+      <ul style="text-align: left; max-width: 500px; margin: 20px auto; font-size: 18px;">
+        <li>✅ Bot WhatsApp (1500+ fitur, auto reply, no prefix)</li>
+        <li>✅ Jasa Edit Video HD & CC Premium</li>
+        <li>✅ Penjualan APK Premium (AM, Canva, Viu, dll)</li>
+        <li>✅ Panel Pterodactyl & VPS Dedicated</li>
+        <li>✅ Desain, Intro Nama, Paid Edit, Netflix/Spotify</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <p style="margin-top: 40px;">💬 Gunakan menu di atas untuk mulai jelajahi fitur-fitur kami!</p>
+      <p>🎯 Layanan cepat, responsif, dan kualitas terbaik — hanya di YNA STORE.</p>
+    </div>
+  
+    <div class="section">
+      <h2>Kenapa Pilih YNA STORE?</h2>
+      <p>Kami sudah dipercaya oleh ratusan pengguna setiap bulannya!</p>
+      <p>Layanan kami tidak hanya cepat, tetapi juga aman dan terpercaya.</p>
+      <p>Dari script bot, APK premium, hingga VPS dan panel — semua tersedia dengan harga terjangkau dan kualitas tinggi.</p>
+    </div>
+
+    <div class="section">
+      <h2>Testimoni Pelanggan</h2>
+      <p>"Pelayanan ramah, fast respon! Bot-nya keren banget!"</p>
+      <p>"Editannya HD real! Udah langganan 5x 😍"</p>
+      <p>"Panelnya stabil, cocok buat bot WhatsApp saya."</p>
+    </div>
+
+    <div class="section">
+      <h2>Promo Spesial 🎉</h2>
+      <p>Cek channel untuk info diskon, bonus item, dan giveaway tiap minggu!</p>
+    </div>
+    
+    <div class="section">
+      <h2>Layanan Unggulan 🔥</h2>
+      <ul style="text-align:left; max-width:600px; margin:20px auto; font-size:18px;">
+        <li>📦 Order instan & auto respon</li>
+        <li>🎨 Edit desain custom sesuai request</li>
+        <li>💾 Panel full akses dan ready deploy</li>
+        <li>🎵 Layanan premium: Spotify, Netflix, Viu</li>
+        <li>🧠 Akses AI & tools otomatis</li>
+        <li>📱 APK premium full fitur</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Cocok Buat Siapa Aja?</h2>
+      <p>🔹 Konten kreator TikTok, Instagram, YouTube</p>
+      <p>🔹 Pemilik bisnis digital, reseller, dropshipper</p>
+      <p>🔹 Pengguna yang butuh layanan cepat & custom</p>
+      <p>🔹 Kamu yang mau usaha online & jual ulang produk digital</p>
+    </div>
+
+    <div class="section">
+      <h2>FAQ ❓</h2>
+      <p><strong>Q:</strong> Bisa order via grup?</p>
+      <p><strong>A:</strong> Bisa, langsung join grup & ketik *list*</p>
+      <p><strong>Q:</strong> Bisa bayar pakai Dana?</p>
+      <p><strong>A:</strong> Bisa banget! Dana only. Pembayaran lainnya tidak tersedia.</p>
+    </div>
+
+    <div class="section">
+      <h2>Kontak & Sosial Media</h2>
+      <p>📞 WhatsApp Admin: <a href="https://wa.me/6283138675899" style="color:#fff;">Chat Sekarang</a></p>
+      <p>👥 Grup WA: <a href="https://chat.whatsapp.com/FPLlkOCcV8YBaUGE9rudMd" style="color:#fff;">Klik untuk gabung</a></p>
+      <p>📢 Saluran WA: <a href="https://whatsapp.com/channel/0029VbAZ4XL8aKvOd4rMv026" style="color:#fff;">Lihat promo & info</a></p>
+    </div>
+    </main>
+    
+    
+
+  <footer>
+    &copy; 2025 YNA STORE - All rights reserved.
+  </footer>
 
   <script>
-    function toggleMusic() {
-      const music = document.getElementById("bg-music");
-      if (music.paused) {
-        music.play();
-      } else {
-        music.pause();
-      }
-    }
+    // Scroll animation delay
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
