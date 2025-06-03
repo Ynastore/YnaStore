@@ -1,57 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontak - YNA STORE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontak | YNA STORE</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #a020f0;
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      line-height: 1.8;
-    }
-    a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #ff69b4;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #1a1a1a;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 20px #a020f0;
-    }
-    h2 {
-      color: #ffffff;
+      margin: 0;
+      background-color: #0f0f1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
     }
-    .info {
-      margin-top: 20px;
+    header {
+      background-color: #1a0033;
+      padding: 30px 20px;
+      box-shadow: 0 0 20px #a020f0;
     }
-    .info p {
-      margin: 10px 0;
+    h1 {
+      font-size: 32px;
+      color: #fff;
+      text-shadow: 0 0 8px #a020f0;
+      animation: fadeIn 1.5s ease both;
+    }
+    h2 {
+      color: #a020f0;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px 20px;
+      background: #1a1a2e;
+      border-radius: 16px;
+      box-shadow: 0 0 10px #a020f0;
+      animation: slideUp 1s ease forwards;
+    }
+    .contact-option {
+      margin: 20px 0;
+    }
+    .contact-option a {
+      display: inline-block;
+      background: linear-gradient(90deg, #a020f0, #610094);
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #a020f0;
+    }
+    .contact-option a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #a020f0;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #a020f0; }
+      50% { text-shadow: 0 0 15px #a020f0; }
+      100% { text-shadow: 0 0 5px #a020f0; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .glow-text {
+      animation: glow 2s infinite ease-in-out;
+    }
+    .float-card {
+      animation: float 4s ease-in-out infinite;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>📞 Kontak YNA STORE 👑</h2>
-    <div class="info">
-      <p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/6283138675899">083138675899</a></p>
-      <p><strong>👥 Grup WA:</strong> <a href="https://chat.whatsapp.com/FPLlkOCcV8YBaUGE9rudMd">Gabung Grup</a></p>
-      <p><strong>📢 Channel WA:</strong> <a href="https://whatsapp.com/channel/0029VbAZ4XL8aKvOd4rMv026">Lihat Channel</a></p>
-      <p><strong>🎵 TikTok:</strong> <a href="https://www.tiktok.com/@yna_store">Ynaa FS ✨</a></p>
-      <p><strong>📬 Email:</strong> <a href="mailto:ynastore.id@gmail.com">nadbrtpro@gmail.com</a></p>
+  <header>
+    <h1 class="glow-text">📞 KONTAK YNA STORE</h1>
+  </header>
+
+  <div class="container float-card">
+    <p>Silakan pilih salah satu kontak di bawah untuk menghubungi admin YNA STORE 👑</p>
+
+    <div class="contact-option">
+      <a href="https://wa.me/6283138675899" target="_blank">💬 WhatsApp Admin</a>
+      <a href="https://chat.whatsapp.com/FPLlkOCcV8YBaUGE9rudMd" target="_blank">👥 Grup WhatsApp</a>
+      <a href="https://whatsapp.com/channel/0029VbAZ4XL8aKvOd4rMv026" target="_blank">📢 Saluran WhatsApp</a>
+      <a href="https://www.tiktok.com/@yna_store" target="_blank">🎵 TikTok: @yna_store</a>
     </div>
-    <p style="text-align:center; margin-top: 20px;">🕒 Kami aktif 24 jam siap bantu kamu!</p>
+
+    <p>Admin akan membalas pesan kamu secepat mungkin yaa 💜<br/>
+    Aktif 24 Jam & Fast Respon 🚀</p>
+  </div>
+
+  <div class="container float-card" style="animation-delay:0.3s;">
+    <h2 class="glow-text">📌 Info Kontak Tambahan</h2>
+    <p>Kami hadir 24 Jam setiap hari!<br>
+    Kamu bisa konsultasi, tanya-tanya, bahkan order langsung via chat 📲</p>
+    <p>Kalau butuh balasan cepat, langsung kirim chat ke admin ya 🛠️</p>
+    <p>Bergabung ke Grup/Saluran juga bisa bikin kamu dapat info promo terbaru! 🤑</p>
+  </div>
+
+  <div class="container float-card" style="animation-delay:0.5s;">
+    <h2 class="glow-text">🔐 Privasi Kamu Aman</h2>
+    <p>YNA STORE menjamin semua data kamu tidak akan disalahgunakan.</p>
+    <p>Kami tidak pernah menyimpan data tanpa izin.</p>
+    <p>Semua transaksi aman dan terpercaya 100% 🛡️</p>
   </div>
 </body>
 </html>
