@@ -1,73 +1,186 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Produk - YNA STORE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YNA STORE - Produk</title>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
     body {
-      background-color: #0d0d0d;
-      color: #a020f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 30px;
-      animation: fadeIn 5s ease-in-out;
+      margin: 0;
+      padding: 0;
+      background: #0d0d1f;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
     }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #a020f0;
+    #tsparticles {
+      position: fixed;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: #0d0d1f;
+    }
+    .background-title {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 7rem;
+      color: rgba(255, 255, 255, 0.02);
+      z-index: 0;
+      pointer-events: none;
+      font-weight: 900;
+      letter-spacing: 15px;
+    }
+    #loader {
+      opacity: 1;
+      transition: opacity 1.2s ease;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0d0d1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 8px solid transparent;
+      border-top: 8px solid #00f0ff;
+      border-bottom: 8px solid #ff00d4;
+      border-radius: 50%;
+      animation: spin 1.4s linear infinite;
+      margin-bottom: 20px;
     }
     h2 {
-      color: #ffffff;
+      font-size: 1.5rem;
+      color: #0ff;
+      letter-spacing: 2px;
+      animation: pulse 1.8s infinite alternate;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    .main {
+      display: none;
+      padding: 30px;
       text-align: center;
-      font-size: 26px;
-      margin-bottom: 20px;
-      animation: slideDown 3s ease-out;
+      transition: opacity 1.5s ease;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      animation: fadeInText 2.5s ease-in-out;
+    .card {
+      background: #1a1a2e;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px #a020f0;
+      transition: 0.3s;
     }
-    ul li {
-      background: #2a2a2a;
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 8px;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #ff00ff;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #a020f0;
       color: #fff;
-      font-size: 18px;
-      box-shadow: 0 0 10px #610094;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes fadeInText {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .btn:hover {
+      background: #ff00ff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>🛍️ Daftar Produk YNA STORE</h2>
-    <ul>
-      <li>✨ Edit Video HD + CC Premium</li>
-      <li>📱 Alight Motion Premium (AM Prem)</li>
-      <li>🤖 Script & Sewa Bot WhatsApp (1500+ fitur)</li>
-      <li>🎧 Netflix, Spotify, Canva, Viu Premium</li>
-      <li>💾 Nokos, Panel Pterodactyl, VPS Dedicated</li>
-      <li>🎨 Jasa Paid Edit, Intro Nama & Desain</li>
-      <li>🛠️ Setup Panel, Install Theme, Wings, Node</li>
-      <li>📦 Jual Paket SC WhatsApp Siap Pakai</li>
-    </ul>
+  <div id="tsparticles"></div>
+  <div class="background-title">YNA STORE</div>
+
+  <div id="loader">
+    <div class="loader"></div>
+    <h2>INITIALIZING...</h2>
   </div>
+
+  <div class="main">
+    <div style="text-align:center; margin-top: 60px;">
+      <img src="produk_yna_store_3d.png" alt="Produk YNA STORE" style="max-width:90%; height:auto;" />
+    </div>
+
+    <h1 style="color:#a020f0; font-size:2.5rem; text-shadow: 0 0 10px #a020f0;">Produk YNA STORE</h1>
+
+    <!-- Produk List -->
+    <div class="card"><h3>AM PREM</h3><a class="btn" href="https://wa.me/6283138675899?text=mau+order+am+prem" target="_blank">Order Sekarang</a></div>
+    <div class="card"><h3>BUG WA</h3><a class="btn" href="https://wa.me/6283138675899?text=mau+order+bug+wa" target="_blank">Order Sekarang</a></div>
+    <div class="card"><h3>CANVA</h3><a class="btn" href="https://wa.me/6283138675899?text=mau+order+canva" target="_blank">Order Sekarang</a></div>
+    <div class="card"><h3>CC AM</h3><a class="btn" href="https://wa.me/6283138675899?text=mau+order+cc+am" target="_blank">Order Sekarang</a></div>
+    <!-- Tambahkan lagi sesuai list produk lainnya... -->
+
+  </div>
+
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      particles: {
+        number: { value: 60 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.08 },
+        size: { value: 3 },
+        move: {
+          enable: true,
+          speed: 0.5,
+          direction: "none",
+          random: true,
+          outModes: { default: "bounce" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: false },
+          resize: true
+        }
+      },
+      background: { color: "#0d0d1f" }
+    });
+
+    ScrollReveal().reveal('.card', {
+      delay: 200,
+      duration: 900,
+      distance: '40px',
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 150
+    });
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+        }, 1200);
+        document.querySelector(".main").style.opacity = "0";
+        document.querySelector(".main").style.display = "block";
+        setTimeout(() => {
+          document.querySelector(".main").style.opacity = "1";
+        }, 100);
+      }, 1800);
+    });
+  </script>
 </body>
 </html>
