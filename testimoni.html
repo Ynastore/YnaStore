@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimoni YNA STORE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    h1 {
+      text-align: center;
+      color: #bb86fc;
+      font-size: 2.5rem;
+      margin: 30px 0;
+      animation: fadeIn 1.5s ease;
+    }
+    .testimonial {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #bb86fc40;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .testimonial:hover {
+      transform: scale(1.02);
+      background: #222;
+    }
+    .stars {
+      color: gold;
+      font-size: 1.2rem;
+    }
+    .quote {
+      font-style: italic;
+      margin: 10px 0;
+    }
+    .name {
+      text-align: right;
+      font-weight: bold;
+      color: #bb86fc;
+    }
+    a.btn {
+      display: block;
+      width: fit-content;
+      margin: 30px auto;
+      padding: 12px 25px;
+      background: #bb86fc;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 8px #bb86fc80;
+      transition: 0.3s;
+    }
+    a.btn:hover {
+      background: #a06ce6;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="font-size: 1.8rem;">✨ Testimoni Pelanggan ✨</h1>
+<div style="text-align: center; margin: 20px;">
+  <button onclick="toggleForm()" style="padding: 10px 20px; background-color: #03dac5; border: none; border-radius: 25px; font-weight: bold; color: #000; cursor: pointer;">💬 Berikan Pendapat Anda</button>
+</div>
+
+<div id="feedbackForm" style="display:none; max-width: 600px; margin: 0 auto; text-align: center;">
+  <textarea id="userMessage" placeholder="Tulis pendapatmu di sini..." rows="5" style="width: 100%; padding: 15px; border-radius: 10px; border: none; resize: none; font-family: 'Segoe UI', sans-serif;"></textarea>
+  <br><br>
+  <button onclick="sendToWA()" style="padding: 10px 20px; background-color: #bb86fc; border: none; border-radius: 25px; font-weight: bold; color: #fff; cursor: pointer;">Kirim ke WhatsApp 🚀</button>
+</div>
+
+<script>
+  function toggleForm() {
+    var form = document.getElementById('feedbackForm');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function sendToWA() {
+    var message = document.getElementById('userMessage').value;
+    if (!message.trim()) {
+      alert("Isi pesan terlebih dahulu ya!");
+      return;
+    }
+    var url = "https://wa.me/6283138675899?text=Halo+admin,+aku+mau+kasih+pendapat:+%0A" + encodeURIComponent(message);
+    window.open(url, '_blank');
+  }
+</script>
+
+<div class="content">
+
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"HD-nya lucu banget! auto jadi status WA!"</p>
+      <div class="name">— Aulia</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Wihhh keren bet anjirrr 😭🔥"</p>
+      <div class="name">— Rafi</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gilak, hasilnya HD banget, mantappp!"</p>
+      <div class="name">— Dinda</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Wahhh gilak sih, auto pamer ke teman-teman 🤭"</p>
+      <div class="name">— Ocha</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Paid edit-nya lucu & halus banget hasilnya 😍"</p>
+      <div class="name">— Alvin</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Kece bet editannya, gak nyesel langganan di sini!"</p>
+      <div class="name">— Hana</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Bot-nya stabil, respon cepat, fiturnya banyak!"</p>
+      <div class="name">— Galih</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Panel VPS-nya lancar jaya, worth it bgt"</p>
+      <div class="name">— Rizka</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Desainnya kece parah! Bisa sesuai request pula 😍"</p>
+      <div class="name">— Rere</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Intro HD-nya bikin nangis, cakep bgt kak"</p>
+      <div class="name">— Fadly</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Keren bet botnya, bisa custom nama bot pula!"</p>
+      <div class="name">— Aca</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Jasa rekbernya aman & cepat, recommended!"</p>
+      <div class="name">— Yudis</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Netflix sharing-nya awet, gak ada limit, mantap"</p>
+      <div class="name">— Zahra</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Panel murah tapi powerful, cocok buat jualan bot"</p>
+      <div class="name">— Naila</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Tampilan desainnya premium parah!"</p>
+      <div class="name">— Budi</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Nokos langsung aktif & ready semua!"</p>
+      <div class="name">— Kiki</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Script botnya full fitur banget, gampang install"</p>
+      <div class="name">— Putri</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Paket panel + bot sangat membantu banget"</p>
+      <div class="name">— Rian</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"CS-nya ramah, fast respon, sabar banget 😭"</p>
+      <div class="name">— Ajeng</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Produk dan jasanya lengkap, tinggal order aja"</p>
+      <div class="name">— Dito</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Rumus HD-nya buat AM mantap kalii!"</p>
+      <div class="name">— Nadya</div>
+    </div>
+    
+</div>
+<a href="https://wa.me/6283138675899?text=Mau+order+YNA+STORE+nih!" class="btn">Order Sekarang 💬</a>
+
+</body>
+</html>
+
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Hasil paid edit-nya estetik banget 😍"</p>
+      <div class="name">— Yaya</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Aman, cepat, dan pasti puas 🔥"</p>
+      <div class="name">— Andre</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gak nyangka sebagus ini hasilnya!"</p>
+      <div class="name">— Maya</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gokil sih botnya auto viral!"</p>
+      <div class="name">— Tika</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya YNA STORE no debat!"</p>
+      <div class="name">— Bayu</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Auto dapet klien banyak gara-gara desainnya!"</p>
+      <div class="name">— Nana</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya puas bgt sama pelayanannya 😭"</p>
+      <div class="name">— Dimas</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya YNA STORE no debat!"</p>
+      <div class="name">— Tara</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gak nyangka sebagus ini hasilnya!"</p>
+      <div class="name">— Icha</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"File script botnya tinggal jalanin doang!"</p>
+      <div class="name">— Kevin</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"File script botnya tinggal jalanin doang!"</p>
+      <div class="name">— Aldo</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"VPS-nya bisa custom, cocok bgt buat aku!"</p>
+      <div class="name">— Rania</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Aman, cepat, dan pasti puas 🔥"</p>
+      <div class="name">— Gilang</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"CS-nya ngeladenin sampai puas 😆"</p>
+      <div class="name">— Novi</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya puas bgt sama pelayanannya 😭"</p>
+      <div class="name">— Raka</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"File script botnya tinggal jalanin doang!"</p>
+      <div class="name">— Cindy</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Auto dapet klien banyak gara-gara desainnya!"</p>
+      <div class="name">— Iqbal</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"File script botnya tinggal jalanin doang!"</p>
+      <div class="name">— Putra</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Recommended banget buat reseller!"</p>
+      <div class="name">— Lia</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Aman, cepat, dan pasti puas 🔥"</p>
+      <div class="name">— Dewi</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Editannya HD parah! Gila sih ini!"</p>
+      <div class="name">— Fajar</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Recommended banget buat reseller!"</p>
+      <div class="name">— Lulu</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Fix langganan di YNA STORE aja!"</p>
+      <div class="name">— Naufal</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"CS-nya ngeladenin sampai puas 😆"</p>
+      <div class="name">— Bela</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Recommended banget buat reseller!"</p>
+      <div class="name">— Hendra</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya puas bgt sama pelayanannya 😭"</p>
+      <div class="name">— Salsa</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Sound editannya bersih, smooth banget!"</p>
+      <div class="name">— Caca</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya YNA STORE no debat!"</p>
+      <div class="name">— Jihan</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gila, orangnya sabar banget bantuin aku"</p>
+      <div class="name">— Amel</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Tampilan AM gue auto premium 😎"</p>
+      <div class="name">— Rio</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Sound editannya bersih, smooth banget!"</p>
+      <div class="name">— Lani</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"VPS-nya bisa custom, cocok bgt buat aku!"</p>
+      <div class="name">— Nico</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Editannya HD parah! Gila sih ini!"</p>
+      <div class="name">— Salwa</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya YNA STORE no debat!"</p>
+      <div class="name">— Udin</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gak nyangka sebagus ini hasilnya!"</p>
+      <div class="name">— Via</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Hasil paid edit-nya estetik banget 😍"</p>
+      <div class="name">— Daffa</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Tampilan AM gue auto premium 😎"</p>
+      <div class="name">— Kania</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya YNA STORE no debat!"</p>
+      <div class="name">— Cika</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Sound editannya bersih, smooth banget!"</p>
+      <div class="name">— Fikri</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Editannya HD parah! Gila sih ini!"</p>
+      <div class="name">— Syifa</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Hasil paid edit-nya estetik banget 😍"</p>
+      <div class="name">— Umi</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gokil sih botnya auto viral!"</p>
+      <div class="name">— Rey</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Yang editin beneran jago, gak nyesel beli!"</p>
+      <div class="name">— Zaki</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Pokoknya YNA STORE no debat!"</p>
+      <div class="name">— Gita</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Fast respon beneran nyata guys!"</p>
+      <div class="name">— Eka</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"CS-nya ngeladenin sampai puas 😆"</p>
+      <div class="name">— Dara</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"CS-nya ngeladenin sampai puas 😆"</p>
+      <div class="name">— Fani</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gak perlu mikir dua kali, gas aja!"</p>
+      <div class="name">— Hani</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Mantap kali desainnya, rapi dan kece!"</p>
+      <div class="name">— Nova</div>
+    </div>
+    
+    <div class="testimonial">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="quote">"Gila, orangnya sabar banget bantuin aku"</p>
+      <div class="name">— Dina</div>
+    </div>
+    
+<a href="https://wa.me/6283138675899?text=Mau+order+YNA+STORE+nih!" class="btn">Order Sekarang 💬</a>
+</body>
+</html>
