@@ -104,13 +104,8 @@
 
     <div id="deskripsi"></div>
 
-    <label>Upload Bukti Transfer (Screenshot)</label>
-    <input type="file" id="bukti" accept="image/*" required />
-
-    <div id="pembayaran">
-      <h3>💸 Pembayaran</h3>
-      <p>Silakan transfer ke Dana: <b>083138675899</b></p>
-      <p>Setelah transfer, klik tombol di bawah untuk kirim ke WhatsApp.</p>
+    
+      <p>Setelah Isi formulir, klik tombol di bawah untuk kirim ke WhatsApp.</p>
     </div>
 
     <button type="submit">Kirim ke WhatsApp</button>
@@ -225,7 +220,6 @@ Harga: 15K - 35K"
 
     const form = document.getElementById("orderForm");
     const deskripsiBox = document.getElementById("deskripsi");
-    const pembayaranBox = document.getElementById("pembayaran");
 
     document.getElementById("produk").addEventListener("change", function() {
       const val = this.value;
@@ -239,24 +233,17 @@ Harga: 15K - 35K"
       const wa = document.getElementById("wa").value;
       const produkSelect = document.getElementById("produk");
       const produkText = produkSelect.options[produkSelect.selectedIndex].text;
-      const bukti = document.getElementById("bukti").files[0];
 
-      if (!bukti) {
-        alert("Upload bukti transfer dulu ya.");
-        return;
-      }
-
-      const reader = new FileReader();
+      
       reader.onloadend = function () {
         const msg = encodeURIComponent(
           `📦 ORDER MASUK
-
+YNA AKU MAU ORDER HEHE :v
 Nama: ${nama}
 WA: ${wa}
 Produk: ${produkText}
 Dana: 083138675899
 
-📎 Bukti TF terlampir`
         );
         window.open(`https://wa.me/6283138675899?text=${msg}`, "_blank");
       };
