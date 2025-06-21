@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produk Dan Jasa- YNA STORE</title>
+  <style>
+    body {
+      background-color: #0f0f1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    h2 {
+      color: #9333ea;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 5px;
+      font-size: 16px;
+      border: none;
+    }
+    button {
+      background-color: #9333ea;
+      color: white;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    #deskripsi {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #9333ea;
+      border-radius: 10px;
+      background: #1e1e2e;
+      white-space: pre-line;
+    }
+    #pembayaran {
+      margin-top: 30px;
+      padding: 15px;
+      background: #202030;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>🛒 Formulir Pemesanan Yna</h2>
+  <form id="orderForm">
+    <label>Nama Kamu</label>
+    <input type="text" id="nama" required />
+
+    <label>Nomor whatsapp Kamu</label>
+    <input type="text" id="wa" required />
+
+    <label>Pilih Produk Yna</label>
+    <select id="produk" required>
+      <option value="">-- Pilih Produk --</option>
+      <option value="01">01. AM - Alight Motion Premium</option>
+      <option value="02">02. Bastation Premium</option>
+      <option value="03">03. Bug WhatsApp</option>
+      <option value="04">04. Canva Unlimited</option>
+      <option value="05">05. Capcut Premium</option>
+      <option value="06">06. CC AM - Custom CC</option>
+      <option value="07">07. ChatGPT</option>
+      <option value="08">08. Jasa Desain Digital</option>
+      <option value="09">09. Diamond FF</option>
+      <option value="10">10. Intro Nama</option>
+      <option value="11">11. Jasa Bot WhatsApp</option>
+      <option value="12">12. Produk Lainnya</option>
+      <option value="13">13. Jasa HD</option>
+      <option value="14">14. Jasa Rekber</option>
+      <option value="15">15. Jasa Web</option>
+      <option value="16">16. Store V1</option>
+      <option value="17">17. Store V2</option>
+      <option value="18">18. Kenon WhatsApp</option>
+      <option value="19">19. Netflix Premium</option>
+      <option value="20">20. Nokos Indonesia</option>
+      <option value="21">21. Paid Edit</option>
+      <option value="22">22. Paid Edit VIP</option>
+      <option value="23">23. Panel</option>
+      <option value="24">24. Partner YNA</option>
+      <option value="25">25. Picsart Unlimited</option>
+      <option value="26">26. Rumus HD</option>
+      <option value="27">27. Script Bot WA</option>
+      <option value="28">28. Sewa Bot WA</option>
+      <option value="29">29. Spotify Premium</option>
+      <option value="30">30. Tutor AM Premium</option>
+      <option value="31">31. Unkenon WA</option>
+      <option value="32">32. Vidio Premium</option>
+      <option value="33">33. VIU Premium</option>
+      <option value="34">34. VPS Dedicated</option>
+      <option value="35">35. WeTV Premium</option>
+      <option value="36">36. Wink Unlimited</option>
+      <option value="37">37. YouTube Premium</option>
+    </select>
+
+    <div id="deskripsi"></div>
+
+    <label>Upload Bukti Transfer (Screenshot)</label>
+    <input type="file" id="bukti" accept="image/*" required />
+
+    <div id="pembayaran">
+      <h3>💸 Pembayaran</h3>
+      <p>Silakan transfer ke Dana: <b>083138675899</b></p>
+      <p>Setelah transfer, klik tombol di bawah untuk kirim ke WhatsApp.</p>
+    </div>
+
+    <button type="submit">Kirim ke WhatsApp</button>
+  </form>
+
+  <script>
+    const deskripsiProduk = {
+      "01": "Alight Motion Premium
+Harga: 10K
+• 1 Tahun • Private • Garansi 6 Bulan",
+      "02": "Bastation Premium
+Harga: 20K
+• Sharing akun dari admin",
+      "03": "Bug WhatsApp
+Harga: 15K
+• Bug WA auto crash",
+      "04": "Canva Unlimited
+Harga: 12K
+• Akses all fitur",
+      "05": "Capcut Premium
+Harga: 18K - 50K
+• 7 Hari/1 Bulan/Private",
+      "06": "CC AM - Custom CC
+• Bisa request CC bebas sesuai kebutuhan",
+      "07": "ChatGPT Premium
+Harga: 22K - 38K
+• Sharing, Garansi",
+      "08": "Jasa Desain Digital
+Harga: 20K - 50K
+• Feed, Banner, CV, Dll",
+      "09": "Diamond FF
+Harga: 9.5K - 500K
+• Pilihan paket lengkap",
+      "10": "Intro Nama
+Harga: 30K - 100K
+• HD, AI Sound, cepat jadi",
+      "11": "Jasa Bot WhatsApp
+Harga: 110K - 250K+
+• Auto reply, store, booking",
+      "12": "Produk Lainnya
+Silakan isi manual/deskripsi",
+      "13": "Jasa HD
+Harga: 50K - 55K
+• Trik HD foto/video realistik",
+      "14": "Jasa Rekber
+Fee: 5K - 50K
+• Aman, cepat, refund 100%",
+      "15": "Jasa Web
+Custom Web Premium
+• Landing Page, Toko, CV, dsb",
+      "16": "Store V1
+Harga: 40K
+• Tools APK Store Lengkap",
+      "17": "Store V2
+Harga: 40K
+• Paket kebutuhan & bahan lengkap",
+      "18": "Kenon WhatsApp
+Harga: 50K
+• Permanen, refund jika gagal",
+      "19": "Netflix Premium
+Harga: 26K - 38K
+• Sharing/Private, Garansi",
+      "20": "Nokos Indonesia
+Harga: 10K",
+      "21": "Paid Edit
+Harga: 15K - 200K
+• Cinematic, Slowmo, Vibes",
+      "22": "Paid Edit VIP
+Harga: 700K / bulan
+• 20+ Video keren tiap bulan",
+      "23": "Panel
+Harga: 1K - 12K
+• Hosting bot & tools",
+      "24": "Partner YNA
+Harga: 200K
+• Akses produk reseller",
+      "25": "Picsart Unlimited
+Harga: 10K",
+      "26": "Rumus HD
+Harga: 50K - 55K
+• Trik + APK HD Premium",
+      "27": "Script Bot WA
+Harga: 50K - 180K
+• Versi V8 - V12",
+      "28": "Sewa Bot WA
+Harga: 12K - 65K
+• Versi V8 - V10",
+      "29": "Spotify Premium
+Harga: 26K",
+      "30": "Tutor AM Premium
+Harga: 50K
+• Bisa aktifin AM sendiri",
+      "31": "Unkenon WA
+Harga: 30K - 50K
+• Buka kenon spam/permanen",
+      "32": "Vidio Premium
+Harga: 28K - 38K",
+      "33": "VIU Premium
+Harga: 5K - 20K
+• Private, all device",
+      "34": "VPS Dedicated
+Harga: 30K - 90K
+• RAM 2GB - 16GB",
+      "35": "WeTV Premium
+Harga: 20K",
+      "36": "Wink Unlimited
+Harga: 35K
+• UHD, AI, semua fitur aktif",
+      "37": "YouTube Premium
+Harga: 15K - 35K"
+    };
+
+    const form = document.getElementById("orderForm");
+    const deskripsiBox = document.getElementById("deskripsi");
+    const pembayaranBox = document.getElementById("pembayaran");
+
+    document.getElementById("produk").addEventListener("change", function() {
+      const val = this.value;
+      deskripsiBox.innerText = deskripsiProduk[val] || "";
+      pembayaranBox.style.display = val ? "block" : "none";
+    });
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const wa = document.getElementById("wa").value;
+      const produkSelect = document.getElementById("produk");
+      const produkText = produkSelect.options[produkSelect.selectedIndex].text;
+      const bukti = document.getElementById("bukti").files[0];
+
+      if (!bukti) {
+        alert("Upload bukti transfer dulu ya.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        const msg = encodeURIComponent(
+          `📦 ORDER MASUK
+
+Nama: ${nama}
+WA: ${wa}
+Produk: ${produkText}
+Dana: 083138675899
+
+📎 Bukti TF terlampir`
+        );
+        window.open(`https://wa.me/6283138675899?text=${msg}`, "_blank");
+      };
+      reader.readAsDataURL(bukti);
+    });
+  </script>
+</body>
+  </html>
