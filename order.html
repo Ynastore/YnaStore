@@ -63,10 +63,10 @@
     </style>
 </head>
 <body>
-<h1>🛍️ Formulir Order YNA STORE 💸</h1>
-<label for="produk">Pilih Produk:</label>
+<h1>🛍️ ORDER PRODUK/JASA YNA STORE 💸</h1>
+<label for="produk">Pilih Produk/Jasa:</label>
 <select id="produk" onchange="tampilkanDeskripsi()">
-<option value="">-- Pilih Produk --</option>
+<option value="">-- Pilih Produk/Jasa --</option>
 <option value="AM">1. AM</option>
 <option value="BASTATION">2. BASTATION</option>
 <option value="BUG WA">3. BUG WA</option>
@@ -164,16 +164,14 @@
       const produk = document.getElementById("produk").value;
       const nama = document.getElementById("nama").value;
       const wa = document.getElementById("wa").value;
-      const message = 
-        `Halo kak Yna, saya ingin order produk:%0A%0A` +
-        `🛍️ Produk: ${produk}%0A` +
-        `📛 Nama: ${nama}%0A` +
-        `📱 WhatsApp: ${wa}%0A` +
-        `💬 Detail: ${deskripsi}%0A%0A` +
-        `Silakan cek bukti transfer yang saya lampirkan.`;
+      alert(`Orderan kamu:
+Produk: ${produk}
+Nama: ${nama}
+WA: ${wa}
 
-Silakan kirim ke WA Yna`);
-      
+Silakan kirim ke WA Admin.`);
+      window.open(`https://wa.me/6283138675899?text=Halo%20kak%20Yna,%20saya%20ingin%20order%20${produk}%20atas%20nama%20${nama}%20mohon%20diproses%20ya!}`);
+    }
   </script>
 <div style="margin-top: 40px; padding: 20px; background-color: #001e40; color: #00f0ff; border-top: 2px solid #00f0ff;">💳 Pembayaran ke DANA: 083138675899</div></body>
 </html>
