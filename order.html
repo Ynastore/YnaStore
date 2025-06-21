@@ -170,8 +170,13 @@ Nama: ${nama}
 WA: ${wa}
 
 Silakan kirim ke WA Yna`);
-      window.open(`https://wa.me/6283138675899?text=Halo%20saya%20ingin%20order%20${produk}%20atas%20nama%20${nama}`);
-    }
+      const message = 
+        `Halo kak Yna, saya ingin order produk:%0A%0A` +
+        `🛍️ Produk: ${produk}%0A` +
+        `📛 Nama: ${nama}%0A` +
+        `📱 WhatsApp: ${wa}%0A` +
+        `💬 Detail: ${deskripsi}%0A%0A` +
+        `Silakan cek bukti transfer yang saya lampirkan.`;
   </script>
-<div style="margin-top: 40px; padding: 20px; background-color: #001e40; color: #00f0ff; border-top: 2px solid #00f0ff;">💳 *Pembayaran ke DANA:* 083138675899</div></body>
+<div style="margin-top: 40px; padding: 20px; background-color: #001e40; color: #00f0ff; border-top: 2px solid #00f0ff;">💳 Pembayaran ke DANA: 083138675899</div></body>
 </html>
