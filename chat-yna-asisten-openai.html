@@ -128,5 +128,74 @@ const axios = require('axios');
     }
     });
   </script>
+
+<div style="display:flex;padding:10px;border-top:1px solid #444;">
+  <input id="user-input" type="text" placeholder="Ketik pesan..." style="flex:1;padding:12px;border:none;border-radius:6px;margin-right:10px;font-size:16px;" onkeydown="if(event.key==='Enter')sendMessage()">
+  <button onclick="sendMessage()" style="padding:12px 20px;font-size:16px;background:#9333ea;color:white;border:none;border-radius:6px;">Kirim</button>
+</div>
+
+
+<script>
+const model_list = {
+  chatgpt4: {
+    api: 'https://stablediffusion.fr/gpt4/predict2',
+    referer: 'https://stablediffusion.fr/chatgpt4'
+  },
+  chatgpt3: {
+    api: 'https://stablediffusion.fr/gpt3/predict',
+    referer: 'https://stablediffusion.fr/chatgpt3'
+  }
+};
+
+const chat = document.getElementById('chat');
+const input = document.getElementById('user-input');
+
+async function sendMessage() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  appendMessage('user', text);
+  input.value = '';
+
+  const loading = appendMessage('bot', '⏳ Menunggu jawaban...');
+
+  for (const [model, config] of Object.entries(model_list)) {
+    try {
+      const hmm = await fetch(config.referer, { method: 'GET' });
+      const cookie = hmm.headers.get('set-cookie') || '';
+      const response = await fetch(config.api, {
+        method: 'POST',
+        headers: {
+          accept: '*/*',
+          'content-type': 'application/json',
+          origin: 'https://stablediffusion.fr',
+          referer: config.referer,
+          cookie,
+          'user-agent': 'Mozilla/5.0'
+        },
+        body: JSON.stringify({ prompt: text })
+      });
+      const data = await response.json();
+      loading.innerText = `🤖 *${model.toUpperCase()}*:\n${data.message || 'Tidak ada jawaban.'}`;
+      return;
+    } catch (err) {
+      console.warn(`Gagal pakai ${model}:`, err);
+      continue;
+    }
+  }
+
+  loading.innerText = '❌ Gagal mengambil jawaban dari semua model.';
+}
+
+function appendMessage(sender, message) {
+  const msg = document.createElement('div');
+  msg.className = sender;
+  msg.innerText = message;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+  return msg;
+}
+</script>
+
 </body>
 </html>
