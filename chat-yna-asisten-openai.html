@@ -1,201 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YNA ASISTEN - AI Chat</title>
-  <style>
-    body {
-      background-color: #0f0f1a;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    header {
-      background-color: #9333ea;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    #chat {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .bot, .user {
-      max-width: 70%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      line-height: 1.4;
-      animation: fadeIn 0.3s ease;
-    }
-    .bot {
-      background-color: #5b21b6;
-      align-self: flex-start;
-    }
-    .user {
-      background-color: #7c3aed;
-      align-self: flex-end;
-    }
-    #inputArea {
-      display: flex;
-      background-color: #1a1a2e;
-      padding: 10px;
-    }
-    #userInput {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-    button {
-      padding: 12px 20px;
-      background-color: #9333ea;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      margin-left: 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNA Asisten 🤖</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            font-family: Arial, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .chat-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .message {
+            margin-bottom: 15px;
+            background-color: #3f3fff;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        .user {
+            background-color: #4d4d4d;
+            align-self: flex-end;
+        }
+        .bot {
+            background-color: #3f3fff;
+        }
+        .input-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header>🤖 YNA ASISTEN AI - Tanya Apa Aja!</header>
-  <div id="chat">
-    <div class="bot">Halo kak! Aku YNA ASISTEN 🪄 Siap bantuin apa hari ini?</div>
-  </div>
-  <div id="inputArea">
-    <input type="text" id="userInput" placeholder="Tulis pertanyaanmu..." />
-    <button onclick="sendMessage()">Kirim</button>
-  </div>
+    <div class="chat-box" id="chat-box">
+        <div class="message bot">Halo kak! Aku YNA ASISTEN ✨ Siap bantuin apa hari ini?</div>
+    </div>
+    <div class="input-box">
+        <input type="text" id="input" placeholder="Ketik pesan...">
+        <button onclick="sendMessage()">Kirim</button>
+    </div>
 
-  <script>
-    const model_list = {
-        chatgpt4: {
-            api: 'https://stablediffusion.fr/gpt4/predict2',
-            referer: 'https://stablediffusion.fr/chatgpt4'
-        },
-        chatgpt3: {
-            api: 'https://stablediffusion.fr/gpt3/predict',
-            referer: 'https://stablediffusion.fr/chatgpt3'
-        }
-    };
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('input');
+            const chatBox = document.getElementById('chat-box');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.textContent = input.value;
+            chatBox.appendChild(userMessage);
+            
+            const loading = document.createElement('div');
+            loading.className = 'message bot';
+            loading.textContent = '⏳ Sedang memproses...';
+            chatBox.appendChild(loading);
+            chatBox.scrollTop = chatBox.scrollHeight;
 
-    try {
-        let results = [];
-        for (const [model, config] of Object.entries(model_list)) {
             try {
-const axios = require('axios');
-                const hmm = await axios.get(config.referer);
-                const { data } = await axios.post(config.api, {
-                    prompt: text
-                }, {
-                    headers: {
-                        accept: '*/*',
-                        'content-type': 'application/json',
-                        origin: 'https://stablediffusion.fr',
-                        referer: config.referer,
-                        cookie: hmm.headers['set-cookie'].join('; '),
-                        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36'
-                    }
+                const res = await fetch('/api/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: input.value })
                 });
-                results.push(`*${model.toUpperCase()}*:\n${data.message || 'Tidak ada jawaban.'}`);
+                const data = await res.json();
+                loading.textContent = data.result || '❌ Gagal mendapatkan jawaban.';
             } catch (err) {
-                results.push(`*${model.toUpperCase()}*:\nGagal mengambil jawaban.`);
-                console.error(`Error on ${model}:`, err.message);
+                loading.textContent = '❌ Gagal mengambil jawaban dari semua model.';
             }
+            input.value = '';
         }
-        m.reply(results.join('\n\n'));
-    } catch (e) {
-        console.error(e);
-        m.reply('Terjadi kesalahan saat mengambil jawaban.');
-    }
-    });
-  </script>
-
-<div style="display:flex;padding:10px;border-top:1px solid #444;">
-  <input id="user-input" type="text" placeholder="Ketik pesan..." style="flex:1;padding:12px;border:none;border-radius:6px;margin-right:10px;font-size:16px;" onkeydown="if(event.key==='Enter')sendMessage()">
-  <button onclick="sendMessage()" style="padding:12px 20px;font-size:16px;background:#9333ea;color:white;border:none;border-radius:6px;">Kirim</button>
-</div>
-
-
-<script>
-const model_list = {
-  chatgpt4: {
-    api: 'https://stablediffusion.fr/gpt4/predict2',
-    referer: 'https://stablediffusion.fr/chatgpt4'
-  },
-  chatgpt3: {
-    api: 'https://stablediffusion.fr/gpt3/predict',
-    referer: 'https://stablediffusion.fr/chatgpt3'
-  }
-};
-
-const chat = document.getElementById('chat');
-const input = document.getElementById('user-input');
-
-async function sendMessage() {
-  const text = input.value.trim();
-  if (!text) return;
-
-  appendMessage('user', text);
-  input.value = '';
-
-  const loading = appendMessage('bot', '⏳ Menunggu jawaban...');
-
-  for (const [model, config] of Object.entries(model_list)) {
-    try {
-      const hmm = await fetch(config.referer, { method: 'GET' });
-      const cookie = hmm.headers.get('set-cookie') || '';
-      const response = await fetch(config.api, {
-        method: 'POST',
-        headers: {
-          accept: '*/*',
-          'content-type': 'application/json',
-          origin: 'https://stablediffusion.fr',
-          referer: config.referer,
-          cookie,
-          'user-agent': 'Mozilla/5.0'
-        },
-        body: JSON.stringify({ prompt: text })
-      });
-      const data = await response.json();
-      loading.innerText = `🤖 *${model.toUpperCase()}*:\n${data.message || 'Tidak ada jawaban.'}`;
-      return;
-    } catch (err) {
-      console.warn(`Gagal pakai ${model}:`, err);
-      continue;
-    }
-  }
-
-  loading.innerText = '❌ Gagal mengambil jawaban dari semua model.';
-}
-
-function appendMessage(sender, message) {
-  const msg = document.createElement('div');
-  msg.className = sender;
-  msg.innerText = message;
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
-  return msg;
-}
-</script>
-
+    </script>
 </body>
 </html>
