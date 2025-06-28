@@ -1,464 +1,179 @@
 
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YNA STORE - Produk</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YNA STORE</title>
+<style>
     body {
       margin: 0;
-      padding: 0;
-      background: #0d0d1f;
-      font-family: 'Orbitron', sans-serif;
-      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      background: #010a14;
+      color: white;
     }
-
-    
-#loader {
-  opacity: 1;
-  transition: opacity 1.2s ease;
-
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #0d0d1f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 9999;
-    }
-
-    .loader {
-      width: 80px;
-      height: 80px;
-      border: 8px solid transparent;
-      border-top: 8px solid #00f0ff;
-      border-bottom: 8px solid #ff00d4;
-      border-radius: 50%;
-      animation: spin 1.4s linear infinite;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #0ff;
-      letter-spacing: 2px;
-      animation: pulse 1.8s infinite alternate;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      100% { opacity: 1; }
-    }
-
-    
-.main {
-  display: none;
-  padding: 30px;
-  text-align: center;
-  transition: opacity 1.5s ease;
-
-      display: none;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .card {
-      background: #1a1a2e;
-      border: 1px solid #444;
-      border-radius: 10px;
+    header {
       padding: 20px;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 10px #a020f0;
+      text-align: center;
+      background-color: #001f3f;
+      color: #00f2ff;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 0 15px #00f2ff;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      min-width: 300px;
+    }
+    h2 {
+      color: #00f2ff;
+      border-bottom: 2px solid #00f2ff;
+      padding-bottom: 5px;
+    }
+    .card {
+      background: #021a2f;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #00f2ff88;
+      margin-bottom: 20px;
+      padding: 15px;
       transition: 0.3s;
     }
-
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #ff00ff;
+      box-shadow: 0 0 20px #00f2ff;
+      transform: scale(1.02);
     }
-
-    .btn {
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin: 0 0 10px 0;
+      color: #00f2ff;
+    }
+    .card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+    .card .price {
+      font-size: 16px;
+      color: #00ffcc;
+      margin: 10px 0;
+    }
+    .card a {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 20px;
-      background: #a020f0;
-      color: #fff;
+      padding: 10px 16px;
+      background: #00f2ff;
+      color: #001f3f;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
     }
-
-    .btn:hover {
-      background: #ff00ff;
-    }
-
-  </style>
-
-  <script src="https://unpkg.com/scrollreveal">
-ScrollReveal().reveal('.card', {
-  delay: 10,
-  duration: 700,
-  distance: '40px',
-  easing: 'ease-out',
-  origin: 'bottom',
-  interval: 150
-});
-
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: false },
-  particles: {
-    number: { value: 60 },
-    color: { value: "#ffffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.08 },
-    size: { value: 3 },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: true,
-      outModes: { default: "bounce" }
-    }
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: false },
-      resize: true
-    }
-  },
-  background: { color: "#0d0d1f" }
-});
-
-ScrollReveal().reveal('.card', {
-  delay: 10,
-  duration: 800,
-  distance: '40px',
-  easing: 'ease-out',
-  origin: 'bottom',
-  interval: 150
-});
-</script>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js">
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: false },
-  particles: {
-    number: { value: 60 },
-    color: { value: "#ffffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.08 },
-    size: { value: 3 },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: true,
-      outModes: { default: "bounce" }
-    }
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: false },
-      resize: true
-    }
-  },
-  background: { color: "#0d0d1f" }
-});
-
-ScrollReveal().reveal('.card', {
-  delay: 10,
-  duration: 800,
-  distance: '40px',
-  easing: 'ease-out',
-  origin: 'bottom',
-  interval: 150
-});
-</script>
-
-  <style>
-    #tsparticles {
-      position: fixed;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background: #0d0d1f;
-    }
-    .background-title {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 7rem;
-      color: rgba(255, 255, 255, 0.02);
-      z-index: 0;
-      pointer-events: none;
-      font-weight: 900;
-      letter-spacing: 15px;
+    .card a:hover {
+      background: #00c1ff;
     }
   </style>
 </head>
-
 <body>
-  <div id="tsparticles"></div>
-  <div class="background-title">YNA STORE</div>
-
-  <div id="loader">
-    <div class="loader"></div>
-    <h2>YNA INITIALIZING...</h2>
-  </div>
-
-  
-
-<div class="main">
-    <h1 style="color:#a020f0; font-size:2.5rem; text-shadow: 0 0 10px #a020f0;">PRODUK YNA STORE</h1>
-
-    <div class="card scroll">
-      <h3>AM PREM</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+am+prem" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>BUG WA</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+bug+wa" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>CANVA</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+canva" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>CC AM</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+cc+am" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>CONTOH RUMUS HD</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+contoh+rumus+hd" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>DESAIN</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+desain" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>DM FF</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+dm+ff" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>FREE CC</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+free+cc" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>INTRO NAMA</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+intro+nama" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>JASA BOT</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+jasa+bot" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>JASA DAN PRODUK LAIN</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+jasa+dan+produk+lain" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>JASA HD</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+jasa+hd" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>JASA REKBER</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+jasa+rekber" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>KEBUTUHAN STORE V1</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+kebutuhan+store+v1" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>KEBUTUHAN STORE V2</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+kebutuhan+store+v2" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>NETFLIX PREM</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+netflix+prem" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>NOKOS</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+nokos" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>PAID EDIT</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+paid+edit" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>PAID EDIT VIP</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+paid+edit+vip" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>PANEL</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+panel" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>PAYMENT</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+payment" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>PICSART</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+picsart" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>RULES</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+rules" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>RUMUS HD</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+rumus+hd" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>SCRIPT BOT</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+script+bot" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>SEWA BOT</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+sewa+bot" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>SPOTIFY</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+spotify" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>TUTOR AM PREM</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+tutor+am+prem" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>VIU PREM</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+viu+prem" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>VPS</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+vps" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>WOI BOT</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+woi+bot" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>YNA</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+yna" target="_blank">Order Sekarang</a>
-    </div>
-    
-    <div class="card scroll">
-      <h3>YTPREM</h3>
-      <a class="btn" href="https://wa.me/6283138675899?text=mau+order+ytprem" target="_blank">Order Sekarang</a>
-    </div>
-    
-  </div>
-
-<script>
-  
-window.addEventListener("load"
-, () => {
-    setTimeout(() => {
-      
-document.getElementById("loader").style.opacity = "0";
-setTimeout(() => {
-  document.getElementById("loader").style.display = "none";
-}, 1200);
-
-      
-document.querySelector(".main").style.opacity = "0";
-document.querySelector(".main").style.display = "block";
-setTimeout(() => {
-  document.querySelector(".main").style.opacity = "1";
-}, 20);
-
-    }, 1800);
-  });
-
-ScrollReveal().reveal('.card', {
-  delay: 10,
-  duration: 800,
-  distance: '40px',
-  easing: 'ease-out',
-  origin: 'bottom',
-  interval: 150
-});
-
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: false },
-  particles: {
-    number: { value: 60 },
-    color: { value: "#ffffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.08 },
-    size: { value: 3 },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: true,
-      outModes: { default: "bounce" }
-    }
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: false },
-      resize: true
-    }
-  },
-  background: { color: "#0d0d1f" }
-});
-
-ScrollReveal().reveal('.card', {
-  delay: 20,
-  duration: 900,
-  distance: '40px',
-  easing: 'ease-out',
-  origin: 'bottom',
-  interval: 150
-});
-</script>
+<header>YNA STORE</header>
+<div class="container">
+<div class="column">
+<h2>PRODUK</h2>
 
 
+</div>
+<div class="column">
+<h2>JASA</h2>
 
-</body>
+
+</div>
+</div>
+<div class="main-container"><div class="column" id="produk"><div class="card"><h3>AM</h3><p>ALIGHT MOTION 🔥
+
+HARGA? : 10 K
+
+•PREMIUM 1 TAHUN
+•PRIVATE
+•GARANSI 6 BULAN
+•EMAIL FRESH (NO VERIFIKASI) DARI BUYER</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>BASTATION</h3><p>BASTATION PREMIUM 🤖
+
+SHARING AKUN DARI ADMIN 👤
+
+1 BULAN : 20 K 💰</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>CANVA</h3><p>CANVA UNLIMITED
+
+BISA AKSES ALLFITUR
+
+HARGA?: 12 K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>CAPCUT</h3><p>CAPCUT PREMIUM 🔥
+
+🔖 Sharing
+🛍️ 7 Hari AntiLimit : 18.000
+🛍️ 1 Bulan 5U BERGARANSI : 20.000
+🛍️ 6 Bulan : 45.000</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>CC AM</h3><p>CC REQUEST BY YNA STORE 🛍️
+🎭 CC APA AJA? REQ AJA, JANGAN MALU²!</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>CHATGPT</h3><p>CHAT GPT 🤖
+
+🔖 SHARING
+🛍️ 1 Minggu FullGaransi : 22.000
+🛍️ 1 Bulan FullGaransi : 38.000</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>DM FF</h3><p>✨ 🎉 DM FFID BY YNA STORE 🎉 ✨
+
+💎 Top Up Diamond Murah &amp; Aman!</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>GETCONTACT</h3><p>GETCONTACT UNLIMITED
+
+Fitur:
+• Tag Profil
+• Siapa Namamu di Kontak Orang
+Harga: 10K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>JADI BOT YNA</h3><p>Jadi Bot YNA Store Otomatis 💬
+Harga mulai dari 120K, bisa jualan sendiri.</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>KEBUTUHAN STORE V1</h3><p>APK JB &amp; STORE V1 🎉
+
+Harga: 40K
+Isi:
+• APK PUSH KONTAK
+• QRIS NO KTP
+• MT MANAGER PRO dll</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>KEBUTUHAN STORE V2</h3><p>PAKET KEBUTUHAN STORE V2
+Harga: 40K
+Isi:
+• Tutor Nokos
+• APK QRIS No KTP
+• Website Produk dll</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>NETFLIX</h3><p>NETFLIX PREMIUM BY YNA STORE
+
+1 Profile 1 User: 34.5K
+1 Profile 2 User: 26K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>NOKOS</h3><p>NOKOS INDONESIA 🇮🇩
+Harga: 10K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>PANEL</h3><p>PANEL BY YNA STORE
+Harga mulai dari 1K/GB hingga 12K UNLIMITED</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>PARTNER YNA</h3><p>PARTNER YNA STORE
+Gabung hanya 200K, akses semua produk &amp; harga partner.</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>PICSART</h3><p>PICSART UNLIMITED
+Harga: 10K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>RUMUS HD</h3><p>RUMUS HD REALISTIC BY YNA STORE
+
+Harga: 50K - 55K
+Isi: 4 APK HD, Trik Blur, Trik TikTok HD dll</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>SCRIPT BOT</h3><p>SCRIPT BOT YNA V8–V12
+Fitur hingga 2000+, harga 50K – 200K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>SPOTIFY</h3><p>SPOTIFY PREMIUM
+Family Plan 1 Bulan: 26K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>TUTOR AM PREM</h3><p>TUTORIAL PREMIUM AM BY YNA
+50K – diajari sampai bisa.</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>VIDIO</h3><p>VIDIO PREMIUM SHARING &amp; PRIVATE
+1 Bulan: 28K–38K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>VIU</h3><p>VIU PREMIUM PRIVATE
+Harga: 5K – 20K
+Durasi 1 Bulan – 1 Tahun</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>VPS</h3><p>VPS DEDICATED IP BY YNA STORE
+Harga: 30K – 90K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>WETV</h3><p>WETV PREMIUM
+1 BULAN: 20K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>WINK</h3><p>WINK UNLIMITED YNA STORE
+Harga promo: 29K</p><a class="order-btn" href="payment.html">Order</a></div><div class="card"><h3>YOUTUBE</h3><p>YOUTUBE PREMIUM
+1 Bulan INDPLAN: 15K
+3 Bulan Garansi: 35K</p><a class="order-btn" href="payment.html">Order</a></div></div><div class="column" id="jasa"><div class="card"><h3>BUG WA</h3><p>BUG WA AUTO NANGIS YANG KENAK WKWK!
+Harga: 15K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+bug+wa">Order</a></div><div class="card"><h3>DESAIN</h3><p>JASA DESAIN
+• Poster, Feed IG, Banner, CV dll
+Harga: mulai dari 15K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+desain">Order</a></div><div class="card"><h3>INTRO NAMA</h3><p>INTRO NO SOUND AI: 30K – 50K
+INTRO SOUND MUSIC: 60K – 100K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+intro+nama">Order</a></div><div class="card"><h3>PAID EDIT</h3><p>PAID EDIT PREMIUM YNA
+Harga 15K – 200K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+paid+edit">Order</a></div><div class="card"><h3>PAID EDIT VIP</h3><p>VIP PAID EDIT 1 BULAN YNA
+Harga: 700K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+paid+edit+vip">Order</a></div><div class="card"><h3>KENON WA</h3><p>KENON PERMANEN: 50K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+kenon+wa">Order</a></div><div class="card"><h3>UNKENON WA</h3><p>BUKA KENON PEMANEN: 40K
+BUKA KENON SPAM: 30K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+unkenon+wa">Order</a></div><div class="card"><h3>JASA BOT</h3><p>PEMBUATAN BOT WA BY YNA
+Harga: 110K – 250K+</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+jasa+bot">Order</a></div><div class="card"><h3>JASA REKBER</h3><p>REKBER YNA STORE
+Fee mulai dari 5K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+jasa+rekber">Order</a></div><div class="card"><h3>JASA WEB</h3><p>JASA WEBSITE
+Harga bervariasi (landing, toko, profil)</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+jasa+web">Order</a></div><div class="card"><h3>JASA HD</h3><p>HD FOTO 2 = 5K
+VIDIO 15-50 detik: 5K – 20K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+jasa+hd">Order</a></div><div class="card"><h3>SEWA BOT</h3><p>SEWA BOT YNA V8–V10
+Harga: 12K – 85K</p><a class="order-btn" href="https://wa.me/6283138675899?text=min+yna+saya+mau+order+sewa+bot">Order</a></div></div></div></body>
 </html>
