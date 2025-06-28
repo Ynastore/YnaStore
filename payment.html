@@ -1,139 +1,117 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment | YNA STORE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YNA STORE PAYMENT</title>
   <style>
     body {
+      background-color: #0a0a0a;
+      color: #00f2ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f1a;
-      color: #fff;
+      padding: 20px;
       text-align: center;
     }
-    header {
-      background-color: #1a0033;
-      padding: 30px 20px;
-      box-shadow: 0 0 20px #a020f0;
-    }
     h1 {
-      font-size: 28px;
-      color: #fff;
-      text-shadow: 0 0 8px #a020f0;
+      color: #00f2ff;
+      text-shadow: 0 0 15px #00f2ff;
     }
-    .container {
-      padding: 30px 20px;
-      max-width: 700px;
-      margin: auto;
-      background-color: #1a1a2e;
-      border-radius: 16px;
-      box-shadow: 0 0 10px #a020f0;
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
     }
-    .container h2 {
-      color: #a020f0;
+    .qris-container {
+      position: relative;
+      max-width: 300px;
+      margin: 0 auto 30px;
     }
-    .payment-box, .info-box {
-      background-color: #292947;
-      padding: 15px;
-      margin: 15px 0;
+    .qris-container img {
+      width: 100%;
+      border: 3px solid #00f2ff;
       border-radius: 12px;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    .copy-btn {
-      background-color: #a020f0;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      color: #fff;
-      font-weight: bold;
+      box-shadow: 0 0 20px #00f2ff;
       cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s;
+      transition: transform 0.3s ease;
     }
-    .copy-btn:hover {
-      background-color: #610094;
+    .qris-container img:hover {
+      transform: scale(1.05);
     }
-    a {
-      color: #fff;
-      text-decoration: underline;
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
     }
-
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(40px) scale(0.95); }
-      60% { opacity: 0.6; transform: translateY(20px) scale(1.02); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
+    .lightbox img {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
     }
-    @keyframes popRotate {
-      0% { transform: rotate(-3deg) scale(0.95); opacity: 0; }
-      50% { transform: rotate(3deg) scale(1.05); opacity: 0.7; }
-      100% { transform: rotate(0deg) scale(1); opacity: 1; }
+    .lightbox:target {
+      display: block;
     }
-    @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 0 10px #a020f0; }
-      50% { box-shadow: 0 0 20px #a020f0; }
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 1rem;
+      color: #0a0a0a;
+      background-color: #00f2ff;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00f2ff;
     }
-    .fade-in {
-      animation: fadeUp 1s ease both;
+    .method {
+      margin-top: 30px;
     }
-    .glow-pulse {
-      animation: glowPulse 2s infinite ease-in-out;
+    .method img {
+      width: 120px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.3s ease;
     }
-    .pop-animated {
-      animation: popRotate 1.2s ease both;
+    .method img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1 class="pop-animated" style="animation-delay:0.2s; font-size:28px;">💳 PAYMENT YNA STORE 💳</h1>
-  </header>
 
-  <div class="container pop-animated">
-    <h2>Metode Pembayaran</h2>
-    <div class="payment-box fade-in glow-pulse" style="animation-delay:0.4s">
-      <p><strong>DANA:</strong> <span id="dana-number">083138675899</span></p>
-      <button class="copy-btn pop-animated" style="animation-delay:0.5s" onclick="copyDana()">📋 Salin Nomor DANA</button>
-      <p>Sistem: TF ➜ Bukti TF ➜ Proses ➜ DONE ✅</p>
-    </div>
+  <h1>💳 YNA STORE PAYMENT</h1>
+  <p>Silakan scan QRIS di bawah untuk melakukan pembayaran.<br>Klik gambar untuk memperbesar, lalu kirim bukti transfer ke admin Yna.</p>
 
-    <h2>Informasi Penting</h2>
-    <div class="info-box fade-in glow-pulse">
-      • Admin Fast Respon 24 Jam ⏰<br/>
-      • Bukti Transfer wajib disertakan 🧾<br/>
-      • Order akan diproses secepatnya setelah pembayaran 💨<br/>
-      • Jangan ragu untuk bertanya ke admin jika bingung 💬<br/>
-      • Harga sudah tertera di list produk 💸<br/>
-      • Untuk custom/jasa khusus bisa langsung konsultasi 👨‍💻<br/>
-    </div>
-
-    <div class="info-box fade-in" style="animation-delay:0.5s">
-      <strong>Kenapa harus bayar dulu?</strong><br/>
-      Karena semua layanan kami berbasis sistem otomatis dan langsung aktif setelah pembayaran masuk.
-    </div>
-
-    <div class="info-box fade-in" style="animation-delay:0.8s">
-      <strong>Butuh bantuan atau konsultasi?</strong><br/>
-      Tim admin siap bantu kamu 24 jam nonstop! Jangan ragu buat tanya atau request khusus ya 😎
-    </div>
-
-    <div class="info-box fade-in" style="animation-delay:1s">
-      <strong>Pembayaran Gagal?</strong><br/>
-      Jangan khawatir, uang akan 100% direfund. Aman dan terpercaya pastinya 🔐
-    </div>
-
-    <p class="fade-in" style="animation-delay:1.2s">
-      🔗 <a href="index.html">Kembali ke Beranda</a>
-    </p>
+  <div class="qris-container">
+    <a href="#lightbox">
+      <img src="qris.png" alt="QRIS Payment">
+    </a>
   </div>
 
-  <script>
-    function copyDana() {
-      const danaNumber = document.getElementById("dana-number").innerText;
-      navigator.clipboard.writeText(danaNumber);
-      alert("Nomor DANA berhasil disalin: " + danaNumber);
-    }
-  </script>
+  <div id="lightbox" class="lightbox">
+    <a href="#"><img src="qris.png" alt="QRIS Zoomed" /></a>
+  </div>
+
+  <div class="method">
+    <p>Atau klik untuk membayar dengan DANA:</p>
+    <a href="https://link.dana.id/minta?full_url=https://qr.dana.id/v1/281012012023120467578809" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_dana_blue.svg" alt="DANA Payment">
+    </a>
+  </div>
+
+  <div style="margin-top:40px;">
+    <a class="button" href="https://wa.me/6283138675899?text=min+yna+saya+udah+membayar+ini+buktinya+saya+kirim+ya..." target="_blank">Kirim Bukti Pembayaran</a>
+    <a class="button" href="index.html">Kembali ke Beranda</a>
+  </div>
+
 </body>
-        </html>
+</html>
