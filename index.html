@@ -1,338 +1,176 @@
 
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>YNA STORE - Beranda</title>
-<style>
-    html {
-      scroll-behavior: smooth;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YNA STORE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #0d0d0d;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Open Sans', sans-serif;
+      background: #0a0a0a;
       color: #fff;
       overflow-x: hidden;
+      position: relative;
+    }
+    .bg-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
     }
     header {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: #1a1a1a;
-      box-shadow: 0 0 10px #a020f0;
-      animation: fadeIn 1s ease-in-out;
+      padding: 60px 20px 20px;
     }
     header h1 {
-      font-size: 40px;
-      color: #a020f0;
-      margin: 0;
+      font-family: 'Heebo', sans-serif;
+      font-size: 3rem;
+      color: #0ff;
+      text-shadow: 0 0 15px #0ff;
     }
-    nav {
+    .nav-cards {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 25px;
-      background-color: #111;
-      padding: 30px 15px;
-      box-shadow: 0 0 10px #610094 inset;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    
-    nav a {
-      display: block;
-      width: 80%;
-      text-align: center;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #00f0ff, #0077ff);
-      color: white;
-      text-decoration: none;
-      padding: 20px 40px;
-      font-size: 20px;
-      border-radius: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      animation: slideUp 0.8s ease forwards;
-      opacity: 0;
-    }
-    nav a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px #a020f0;
-    }
-
-    nav a:nth-child(1) { animation-delay: 0.2s; }
-    nav a:nth-child(2) { animation-delay: 0.4s; }
-    nav a:nth-child(3) { animation-delay: 0.6s; }
-    nav a:nth-child(4) { animation-delay: 0.8s; }
-    nav a:nth-child(5) { animation-delay: 1s; }
-
-    @keyframes slideUp {
-      from {
-        transform: translateY(40px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    
-  display: block;
-  width: 80%;
-  text-align: center;
-  margin-bottom: 20px;
-      background-color: #a020f0;
-      color: white;
-      text-decoration: none;
-      padding: 18px 35px;
-      font-size: 18px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s;
-    }
-    nav a:hover {
-      background-color: #610094;
-      transform: scale(1.05);
-    }
-    main {
-      max-width: 800px;
-      margin: 60px auto;
+      justify-content: center;
+      gap: 20px;
       padding: 20px;
+    }
+    .card {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid #0ff;
+      box-shadow: 0 0 10px #0ff;
+      border-radius: 12px;
+      padding: 20px 30px;
       text-align: center;
-      animation: fadeInUp 2s ease-in-out;
+      width: 280px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .section {
-      margin-bottom: 100px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px #0ff;
     }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    footer {
-      text-align: center;
-      padding: 30px 15px;
-      background-color: #1a1a1a;
-      color: #999;
-      font-size: 14px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  
-    .glow-wave-title {
-      text-align: center;
-      font-size: 42px;
+    .card a {
+      text-decoration: none;
+      color: #0ff;
       font-weight: bold;
+      font-size: 1.2rem;
     }
-    .glow-wave-title span {
-      display: inline-block;
-      color: #fff;
-      text-shadow: 0 0 10px #a020f0, 0 0 20px #a020f0, 0 0 30px #a020f0;
-      animation: wave 1.5s infinite ease-in-out, glowPulse 2s infinite ease-in-out;
+    .desc {
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ccc;
     }
-    .glow-wave-title span:nth-child(1) { animation-delay: 0s, 0s; }
-    .glow-wave-title span:nth-child(2) { animation-delay: 0.1s, 0s; }
-    .glow-wave-title span:nth-child(3) { animation-delay: 0.2s, 0s; }
-    .glow-wave-title span:nth-child(4) { animation-delay: 0.3s, 0s; }
-    .glow-wave-title span:nth-child(5) { animation-delay: 0.4s, 0s; }
-    .glow-wave-title span:nth-child(6) { animation-delay: 0.5s, 0s; }
-    .glow-wave-title span:nth-child(7) { animation-delay: 0.6s, 0s; }
-    .glow-wave-title span:nth-child(8) { animation-delay: 0.7s, 0s; }
-
-    @keyframes wave {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    audio {
+      display: none;
     }
-    @keyframes glowPulse {
-      0%, 100% {
-        text-shadow: 0 0 5px #a020f0, 0 0 10px #a020f0, 0 0 15px #a020f0;
-      }
-      50% {
-        text-shadow: 0 0 20px #a020f0, 0 0 30px #a020f0, 0 0 40px #a020f0;
-      }
-    }
-    </style>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
-.neon-text {
-  color: #00f0ff;
-  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
-  font-weight: bold;
-}
-@keyframes dropBounce {
-  0% { transform: translateY(-100px); opacity: 0; }
-  60% { transform: translateY(10px); opacity: 1; }
-  100% { transform: translateY(0); }
-}
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-</style>
+  </style>
 </head>
 <body>
-<!-- Intro Popup YNA STORE -->
-<div id="intro-popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: black; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-<!-- Logo -->
-<img alt="YNA Logo" id="intro-logo" src="https://qu.ax/pbeVu.jpg" style="width: 120px; animation: dropBounce 1s ease-out;"/>
-<!-- Text -->
-<h1 class="neon-text" style="font-size: 3em; margin: 10px 0; font-family: 'Orbitron', sans-serif;">YNA STORE</h1>
-<span class="neon-text" id="typing-text" style="font-size: 1.5em;"></span>
-<!-- Audio Intro -->
-<audio autoplay="">
-<source src="https://files.catbox.moe/qgi8e8.mp3" type="audio/mp3"/>
-</audio>
-</div>
-<header style="position: relative; overflow: hidden;">
-<svg preserveaspectratio="xMidYMid slice" style="position:absolute; top:-20px; left:-20px; width:150%; height:150%; z-index:0; opacity:0.08;" viewbox="0 0 100 100">
-<defs>
-<pattern height="20" id="circles" patternunits="userSpaceOnUse" width="20" x="0" y="0">
-<circle cx="10" cy="10" fill="#a020f0" r="2"></circle>
-</pattern>
-</defs>
-<rect fill="url(#circles)" height="100%" width="100%" x="0" y="0"></rect>
-</svg>
-<div style="
-        position: absolute;
-        top: 0; left: 50%;
-        transform: translateX(-50%);
-        width: 300px; height: 300px;
-        background: radial-gradient(circle, rgba(160,32,240,0.6) 0%, transparent 70%);
-        border-radius: 50%;
-        filter: blur(60px);
-        z-index: 0;
-      "></div>
-<h1 class="glow-wave-title" style="position: relative; z-index: 1;">
-<span>Y</span><span>N</span><span>A</span>
-<span>S</span><span>T</span><span>O</span><span>R</span><span>E</span> 👑
-    </h1>
-</header>
-<nav style="flex-direction: column; align-items: center;">
-<a href="produk.html">🛒 List Produk Yna</a>
-<a href="payment.html">💸 Payment Yna</a>
-<a href="order.html">📦 Order</a>
-<a href="kontak.html">📱 Kontak Yna</a>
-<a href="testimoni.html">📝 Testimoni Yna</a>
-<a href="tentang.html">ℹ️ Tentang Yna</a>
-<a href="chat-yna-asisten-openai.html">🤖 Chat Asisten YNA 24 Jam</a>
-</nav>
-<main>
-<div class="section">
-<h2>Selamat Datang di YNA STORE!</h2>
-<p>Kami menyediakan berbagai layanan digital terbaik:</p>
-</div>
-<div class="section">
-<ul style="text-align: left; max-width: 500px; margin: 20px auto; font-size: 18px;">
-<li>✅ Bot WhatsApp (1500+ fitur, auto reply, no prefix)</li>
-<li>✅ Jasa Edit Video HD &amp; CC Premium</li>
-<li>✅ Penjualan APK Premium (AM, Canva, Viu, dll)</li>
-<li>✅ Panel Pterodactyl &amp; VPS Dedicated</li>
-<li>✅ Desain, Intro Nama, Paid Edit, Netflix/Spotify</li>
-</ul>
-</div>
-<div class="section">
-<p style="margin-top: 40px;">💬 Gunakan menu di atas untuk mulai jelajahi fitur-fitur kami!</p>
-<p>🎯 Layanan cepat, responsif, dan kualitas terbaik — hanya di YNA STORE.</p>
-</div>
-<div class="section">
-<h2>Kenapa Pilih YNA STORE?</h2>
-<p>Kami sudah dipercaya oleh ratusan pengguna setiap bulannya!</p>
-<p>Layanan kami tidak hanya cepat, tetapi juga aman dan terpercaya.</p>
-<p>Dari script bot, APK premium, hingga VPS dan panel — semua tersedia dengan harga terjangkau dan kualitas tinggi.</p>
-</div>
-<div class="section">
-<h2>Testimoni Pelanggan</h2>
-<p>"Pelayanan ramah, fast respon! Bot-nya keren banget!"</p>
-<p>"Editannya HD real! Udah langganan 5x 😍"</p>
-<p>"Panelnya stabil, cocok buat bot WhatsApp saya."</p>
-</div>
-<div class="section">
-<h2>Promo Spesial 🎉</h2>
-<p>Cek channel untuk info diskon, bonus item, dan giveaway tiap minggu!</p>
-</div>
-<div class="section">
-<h2>Layanan Unggulan 🔥</h2>
-<ul style="text-align:left; max-width:600px; margin:20px auto; font-size:18px;">
-<li>📦 Order instan &amp; auto respon</li>
-<li>🎨 Edit desain custom sesuai request</li>
-<li>💾 Panel full akses dan ready deploy</li>
-<li>🎵 Layanan premium: Spotify, Netflix, Viu</li>
-<li>🧠 Akses AI &amp; tools otomatis</li>
-<li>📱 APK premium full fitur</li>
-</ul>
-</div>
-<div class="section">
-<h2>Cocok Buat Siapa Aja?</h2>
-<p>🔹 Konten kreator TikTok, Instagram, YouTube</p>
-<p>🔹 Pemilik bisnis digital, reseller, dropshipper</p>
-<p>🔹 Pengguna yang butuh layanan cepat &amp; custom</p>
-<p>🔹 Kamu yang mau usaha online &amp; jual ulang produk digital</p>
-</div>
-<div class="section">
-<h2>FAQ ❓</h2>
-<p><strong>Q:</strong> Bisa order via grup?</p>
-<p><strong>A:</strong> Bisa, langsung join grup &amp; ketik *list*</p>
-<p><strong>Q:</strong> Bisa bayar pakai Dana?</p>
-<p><strong>A:</strong> Bisa banget! Dana only. Pembayaran lainnya tidak tersedia.</p>
-</div>
-<div class="section">
-<h2>Kontak &amp; Sosial Media</h2>
-<p>📞 WhatsApp Admin: <a href="https://wa.me/6283138675899" style="color:#fff;">Chat Sekarang</a></p>
-<p>👥 Grup WA: <a href="https://chat.whatsapp.com/FPLlkOCcV8YBaUGE9rudMd" style="color:#fff;">Klik untuk gabung</a></p>
-<p>📢 Saluran WA: <a href="https://whatsapp.com/channel/0029VbAZ4XL8aKvOd4rMv026" style="color:#fff;">Lihat promo &amp; info</a></p>
-</div>
-</main>
-<footer>
-    © 2025 YNA STORE - All rights reserved.
-  </footer>
-<script>
-    // Scroll animation delay
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+  <!-- Background Effect -->
+  <div class="bg-overlay">
+    <canvas id="stars"></canvas>
+  </div>
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
-<script>
-  const text = "LOADING...";
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      document.getElementById("typing-text").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 100);
+  <header>
+    <h1>YNA STORE</h1>
+  </header>
+
+  <div class="nav-cards">
+    <div class="card"><a href="produk.html">Produk YNA</a></div>
+    <div class="card"><a href="payment.html">Payment YNA</a></div>
+    <div class="card"><a href="order.html">Order</a></div>
+    <div class="card"><a href="kontak.html">Kontak YNA</a></div>
+    <div class="card"><a href="testimoni.html">Testimoni YNA</a></div>
+    <div class="card"><a href="tentang.html">Tentang YNA</a></div>
+    <div class="card"><a href="gameyna.html">Main Game Yna</a></div>
+  </div>
+
+  <div class="desc">
+    Hallo kak! Saya YNA, selamat datang di YNA STORE — pusat layanan digital paling lengkap dan terpercaya!
+YNA STORE adalah digital store yang saya bangun sendiri dari nol, tanpa bantuan pihak manapun, dengan dedikasi dan konsistensi sejak awal. Kami hadir sebagai solusi lengkap untuk kebutuhan digital kamu, baik untuk keperluan hiburan, bisnis, editing, hingga sistem otomatisasi.
+
+Di YNA STORE, kamu bisa menemukan berbagai produk digital premium seperti:
+✅ Langganan aplikasi populer (Alight Motion, CapCut, Canva, PicsArt, ChatGPT, Netflix, Spotify, VIU, WeTV, YOUTUBE, dan lainnya)
+✅ Bot WhatsApp otomatis dengan fitur auto payment, sistem panel, serta branding eksklusif
+✅ Jasa editing video, seperti paid edit cinematic, slowmo, JJ, hingga VIP edit
+✅ Desain intro nama dan grafis keren untuk kebutuhan branding personal atau bisnis
+✅ Script bot WA, VPS, Website, hingga sistem rekber yang aman
+✅ Tutorial private seperti Alight Motion Premium dan banyak tools bantu lainnya
+✅ Cek tag GetContact, pembersih bug WA, dan berbagai tools unik lainnya
+✅ Join tim editor Flaw Sync untuk komunitas kreatif dan berkembang bersama
+
+Kami dipercaya oleh 999+ pelanggan puas, menyediakan respon super cepat 24 jam, sistem pembayaran yang praktis (Dana, QRIS, Gopay), serta keamanan transaksi yang terjamin.
+    YNA STORE dikenal sebagai layanan digital terpercaya, amanah, dan FAST RESPON. Telah digunakan oleh lebih dari 999+ pelanggan dengan testimoni memuaskan. Jangan ragu bergabung bersama komunitas kami melalui WhatsApp Group & Channel untuk promo dan support 24/7.
+  </div>
+
+  <!-- Sound autoplay -->
+  <audio id="introAudio" autoplay>
+    <source src="https://qu.ax/DJDmk.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Star animation (simple moving stars)
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function initStars() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = [];
+      for (let i = 0; i < 100; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2,
+          d: Math.random() * 1
+        });
+      }
     }
-  }
-  window.onload = () => {
-    type();
-    setTimeout(() => {
-      const popup = document.getElementById("intro-popup");
-      popup.style.animation = "fadeOut 1s ease forwards";
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 1000);
-    }, 3000);
-  }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0ff";
+      for (let i = 0; i < stars.length; i++) {
+        let s = stars[i];
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, false);
+        ctx.fill();
+        s.y += s.d;
+        if (s.y > canvas.height) {
+          s.y = 0;
+          s.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    window.onload = () => {
+      initStars();
+      drawStars();
+    }
+    window.onresize = initStars;
+  </script>
+
+<script>
+  const clickSound = new Audio('https://qu.ax/uWVAo.opus');
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
+        clickSound.play();
+      });
+    });
+  });
 </script>
+
 </body>
 </html>
